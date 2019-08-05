@@ -23,14 +23,24 @@ java使用两个机制保证名字的唯一性：
 ### 4. java导入模块（和与cpp的区别）
 java导入模块使用import语句，例如要导入某个模块或者对象，均将对应的包名+类名写在import后即可导入。例如:
 
+```
 import java.util.Date;
+```
 
 在该import语句后，就可以直接使用Date类名，而不需要写完整的类名: java.util.Date。
 
 > 附注：java import导入和cpp include导入的区别：
-> 
-
-### 5. static关键字，静态字段和方法
-
+> java的import导入和cpp的include导入有很大的区别，由于cpp自身语言的设计限制，cpp编译器若不进行include导入就不能访问对应的头文件，但是java不同，即使不使用import语句，只要对应的包在项目环境中编译器就可以进行访问，也可以直接写出类的全名来进行来使用对应的类。例如在上述例子中，即使不使用import语句，直接使用全名java.util.Date同样可以访问和使用Date类。  
+> 从这个角度上说，java的import语句和cpp的namespace与using语句更相似，仅仅是简化了类名的使用。另外，在java中使用import导入没有实际使用的包或者类也不会影响性能，因为实际的编译和执行性能仅仅取决于实际使用的包和类。
 
 
+### 5. static关键字，静态属性和方法
+java的static关键字同样表示静态，和cpp一致。静态属性和方法是属于某个类的属性和方法，而非静态属性和方法是属于类的某个对象的属性和方法。通常推荐使用类的名称来调用静态属性和方法，例如：
+
+```
+int res=StaticClass.staticFunction(param);     // StaticClass为类名，staticFunction为该类的静态成员方法
+```
+
+特别地，静态方法没有this引用（或者称为this关键字），因此静态成员方法只能使用该类下的静态属性，或者调用该类下的静态方法。
+
+静态属性和方法在实践中通常用于同一个类下的多个对象的管理。
