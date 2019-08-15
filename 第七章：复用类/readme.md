@@ -22,4 +22,31 @@ java继承中派生类的构造函数遵守和cpp相同的规则，即：派生�
 java的继承机制和cpp相同，允许将基类引用绑定到派生类的对象上。在cpp中更进一步，不仅允许将基类引用绑定到派生类对象上，还允许将基类指针指向派生类对象。
 
 ### 5. 静态代理模式
+java中的代理模式分为静态代理，动态代理。其中动态代理将在RTTI一章讲解，本处主要介绍静态代理模式，静态代理模式的核心是：
++ 首先创建一个接口，代理类和被代理类均实现该接口，被代理类对接口需要给出具体实现，而代理类只需要在对应接口中调用被代理类对象的同名接口，从而实现静态代理。
+下面举一个静态代理的经典实例。
+
+```
+// 1.Flayable是一个公共接口，表示会飞的对象
+public interface Flyable
+{
+  public void fly();
+}
+
+// 2. 被代理类，Bird是一种可以飞的动物，实现Flyable接口
+public class Bird implements Flyable
+{
+  public void fly()
+  {
+    System.out.println("Birds can fly");
+  }
+}
+
+// 3. 代理类，BirdProxy同样实现与代理类相同的接口，在对应接口只需要调用被代理类对象的同名接口
+public class BirdProxy implements Flyable
+{
+  
+}
+```
+
 
