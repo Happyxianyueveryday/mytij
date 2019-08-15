@@ -18,7 +18,7 @@ java继承中派生类的构造函数遵守和cpp相同的规则，即：派生�
 和cpp中需要将虚函数声明为virtual不同，java中默认所有方法都是虚函数，对于不想设置为虚函数方法，使用final关键字用于修饰。
 特别的，final关键字修饰成员属性时，表示该属性是一个常量；而final关键字修饰成员方法时，表示该方法不作为虚函数，派生类不能重写该方法。
 
-### 4. 向上转型规则
+### 4. 向上转型规则d
 java的继承机制和cpp相同，允许将基类引用绑定到派生类的对象上。在cpp中更进一步，不仅允许将基类引用绑定到派生类对象上，还允许将基类指针指向派生类对象。
 
 ### 5. 静态代理模式
@@ -43,9 +43,18 @@ public class Bird implements Flyable
 }
 
 // 3. 代理类，BirdProxy同样实现与代理类相同的接口，在对应接口只需要调用被代理类对象的同名接口
+// 这里的代理类不仅能够代理Bird，还可以代理实现了Flyable接口的其他类。
 public class BirdProxy implements Flyable
 {
-  
+  private Flyable obj;
+  public BirdProxy(Flyable obj) 
+  {
+    this.obj=obj;
+  }
+  public void fly()
+  {
+    this.obj.fly();
+  }
 }
 ```
 
