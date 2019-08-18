@@ -27,9 +27,26 @@ java多态的基本概念概括而言，就是如下两点：
 ### 3. 多态的典型应用——工厂模式
 多态的最典型的一个应用就是工厂模式，工厂模式用于批量生产实现了同一个接口，或者是继承自同一个基类的多个不同类的对象，创建的对象仅需统一使用基类的引用返回即可。
 
-下面提供一个示例，这个工厂模式类根据输入的动物名称生成不同的动物类的对象。
+下面提供一个示例，这个工厂模式类根据输入的动物名称生成不同的动物类的对象，其中Animal为基类，而Bird，Cat，Dog均为Animal的派生类。
 
 ```
+public class AnimalFactory
+{
+    public AnimalFactory()
+    {
+    }
+
+    public Animal manufacture(String name)
+    {
+        if(name.equals("bird"))
+        return new Bird();
+        else if(name.equals("cat"))
+        return new Cat();
+        else if(name.equals("dog"))
+        return new Dog();
+    }
+}
 ```
 
 #### 4. 向下转型
+
