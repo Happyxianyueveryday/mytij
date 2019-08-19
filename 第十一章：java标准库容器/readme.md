@@ -10,7 +10,7 @@ java标准库中的所有容器，首先可以分为Collection和Map两类：Col
 + Map：Map是一组键不重复的键值对组成的集合，允许根据键来查询对应的值。
 
 ### 2. List类容器
-List类容器是由一组元素组成的有序列表，允许元素在任意位置插入或者删除。最常用的List容器是ArrayList和LinkedList。
+List类容器是由一组元素组成的有序列表，允许元素在任意位置插入或者删除。最常用的List容器是ArrayList和LinkedList。 
 
 **a. ArrayList**
 
