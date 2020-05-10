@@ -63,7 +63,7 @@ public class AnimalFactory
 
 下面给出了一个工厂方法模式的示例，其中Cat和Dog均为基类Animal的基类。
 
-'''
+```
 public interface AnimalFactory 
 {
     Animal manufacture();
@@ -86,7 +86,7 @@ public class DogFactory implements AnimalFactory
         return new Dog();
     }
 }
-'''
+```
 
 ### 4. 向下转型
 在有时即使使用基类引用绑定到派生类对象上，但是还需要使用派生类的特有方法，这时便需要向下转型。
